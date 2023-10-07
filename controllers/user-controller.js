@@ -27,7 +27,6 @@ module.exports.signup = async (req, res, next) => {
             if(err){
                 console.log(err);
             }else{
-                // console.log(results);
                 return res.json({message: 'User Registered'});
             }
         })
@@ -36,7 +35,6 @@ module.exports.signup = async (req, res, next) => {
 };
 
 module.exports.login = (req, res) => {
-    // console.log(req.body);
 
     const { email, password } = req.body;
     db.query('SELECT * FROM USERS WHERE EMAIL=?', [email], (err, results) => {
@@ -50,9 +48,9 @@ module.exports.login = (req, res) => {
                     return res.json({
                         message: 'Login successfull'
                     })
-                } else {
-                    return res.json({ message: 'Invalid Password' })
-                }
+                // } else {
+                //     return res.json({ message: 'Invalid Password' })
+                // }
             }
         })
     })
