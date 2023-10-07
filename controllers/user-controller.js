@@ -3,14 +3,14 @@ const mysql = require('mysql2');
 // const bcrypt = require("bcryptjs");
 const db = require('../config/db.js');
 
-// module.exports.getAllUser = async (req, res) => {
-//     const { name, email, password } = req.body;
-//     db.query("SELECT * FROM USERS", (err, result) => {
-//         if (err) return console.log(err);
+module.exports.getAllUser = async (req, res) => {
+    const { name, email, password } = req.body;
+    db.query("SELECT * FROM USERS", (err, result) => {
+        if (err) return console.log(err);
 
-//         res.send(result);
-//     })
-// };
+        res.send(result);
+    })
+};
 
 module.exports.signup = async (req, res, next) => {
     const { name, email, password } = req.body;
