@@ -22,7 +22,7 @@ module.exports.addBlog = async (req, res, next) => {
                 message: 'Unable to find the user'
             })
         }
-        
+
         db.query('INSERT INTO BLOGS SET ?', { title: title, description: description, image: image, id: id }, (err, results) => {
             if (err) {
                 console.log(err);
@@ -40,6 +40,7 @@ module.exports.addBlog = async (req, res, next) => {
 module.exports.updateBlog = async (req, res, next) => {
     const { title, description, image, id } = req.body;
     const blogId = req.params.id;
+    
     db.query('UPDATE BLOGS SET TITLE=?, DESCRIPTION = ?, IMAGE= ?, ID=? WHERE B_ID =?', [title, description, image, id, blogId], (err, results) => {
         if (err) {
             console.log(err);
