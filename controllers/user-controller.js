@@ -48,9 +48,9 @@ module.exports.login = (req, res) => {
                     return res.json({
                         message: 'Login successfull'
                     })
-                // } else {
-                //     return res.json({ message: 'Invalid Password' })
-                // }
+                } else {
+                    return res.json({ message: 'Invalid Password' })
+                }
             }
         })
     })
